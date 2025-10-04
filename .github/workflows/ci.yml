@@ -1,0 +1,157 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: pgvector/pgvector:pg14
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: resumerag_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        run: |
+          cd api
+          pip install -r requirements.txt
+      
+      - name: Enable pgvector extension
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -d resumerag_test -c "CREATE EXTENSION IF NOT EXISTS vector;"
+      
+      - name: Run Alembic migrations
+        env:
+          DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/resumerag_test
+          REDIS_URL: redis://localhost:6379/0
+        run: |
+          cd api
+          alembic upgrade head
+      
+      - name: Run pytest tests
+        env:
+          TEST_DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/resumerag_test
+          DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/resumerag_test
+          REDIS_URL: redis://localhost:6379/0
+          SECRET_KEY: test-secret-key
+          PII_ENC_KEY: test-encryption-key-32-bytes-long==
+        run: |
+          cd tests
+          pytest test_api.py test_security.py -v
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+      
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+  
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install linting tools
+        run: |
+          pip install black flake8
+      
+      - name: Run black (check only)
+        run: |
+          cd api
+          black --check app/ || true
+      
+      - name: Run flake8
+        run: |
+          cd api
+          flake8 app/ --max-line-length=120 --exclude=__pycache__,venv || true
+  
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies for security scanning
+        run: |
+          cd api
+          pip install -r requirements.txt
+      
+      - name: Run Bandit (Python security linter)
+        run: |
+          pip install bandit
+          cd api
+          bandit -r app/ -ll -f txt || true
+      
+      - name: Run Safety (dependency vulnerability scanner)
+        run: |
+          pip install safety
+          cd api
+          safety check --file requirements.txt --continue-on-error || true
+      
+      - name: Build Docker image for Trivy scan
+        run: |
+          cd api
+          docker build -t resumerag-api:test .
+      
+      - name: Run Trivy (Docker image vulnerability scanner)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'resumerag-api:test'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'

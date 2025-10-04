@@ -1,0 +1,45 @@
+Alice Chen
+alice@example.com | (555) 123-4567
+
+PROFESSIONAL SUMMARY
+Experienced Full Stack Developer with 5+ years building modern web applications. 
+Expert in React, Node.js, and cloud technologies. Passionate about creating scalable 
+and user-friendly solutions.
+
+TECHNICAL SKILLS
+- Frontend: React, TypeScript, JavaScript, HTML5, CSS3, Redux
+- Backend: Node.js, Express, RESTful APIs
+- Databases: PostgreSQL, MongoDB, Redis
+- Tools: Git, Docker, Jenkins, AWS
+- Other: Agile/Scrum, Test-Driven Development
+
+EXPERIENCE
+
+Senior Frontend Developer | TechCorp Inc. | 2021 - Present
+- Led frontend team of 5 developers building React applications
+- Architected and implemented component library used across 10+ projects
+- Improved application performance by 40% through code optimization
+- Collaborated with backend team to design RESTful APIs
+- Technologies: React, TypeScript, Node.js, PostgreSQL, AWS
+
+Full Stack Developer | StartupXYZ | 2019 - 2021
+- Developed full-stack web applications using React and Node.js
+- Built RESTful APIs with Express and PostgreSQL
+- Implemented Redis caching layer improving response times by 60%
+- Deployed applications to AWS using Docker containers
+- Technologies: React, Node.js, Express, PostgreSQL, Redis, Docker
+
+Junior Developer | WebSolutions Ltd | 2018 - 2019
+- Created responsive web interfaces using HTML, CSS, and JavaScript
+- Maintained legacy codebases and fixed bugs
+- Participated in code reviews and pair programming
+- Technologies: JavaScript, jQuery, PHP, MySQL
+
+EDUCATION
+Bachelor of Science in Computer Science
+State University | 2014 - 2018
+
+PROJECTS
+- Open Source Contributor: Contributed to popular React libraries
+- Personal Portfolio: Built with React and Node.js, hosted on AWS
+- E-commerce Platform: Full-stack application with payment integration

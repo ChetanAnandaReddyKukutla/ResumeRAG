@@ -1,0 +1,50 @@
+Bob Martinez
+bob@example.com | (555) 234-5678
+
+PROFESSIONAL SUMMARY
+Backend Developer specializing in Python and Django with 4+ years of experience.
+Strong focus on building robust APIs and data processing pipelines. Experienced
+with microservices architecture and DevOps practices.
+
+TECHNICAL SKILLS
+- Languages: Python, SQL, JavaScript
+- Frameworks: Django, Flask, FastAPI
+- Databases: PostgreSQL, MySQL, Redis, Elasticsearch
+- DevOps: Docker, Kubernetes, CI/CD, Jenkins
+- Cloud: AWS, Azure
+- Other: REST APIs, Microservices, Agile
+
+EXPERIENCE
+
+Backend Developer | DataSystems Corp | 2021 - Present
+- Developed RESTful APIs using Django REST Framework
+- Built data processing pipelines handling 1M+ records daily
+- Implemented microservices architecture with Docker and Kubernetes
+- Optimized database queries reducing response time by 50%
+- Technologies: Python, Django, PostgreSQL, Redis, Docker, Kubernetes
+
+Python Developer | AnalyticsPro | 2019 - 2021
+- Created backend services using Flask and FastAPI
+- Integrated with third-party APIs for data aggregation
+- Implemented caching strategies with Redis
+- Wrote comprehensive unit and integration tests
+- Technologies: Python, Flask, FastAPI, PostgreSQL, Redis, Elasticsearch
+
+Junior Developer | CodeFactory | 2018 - 2019
+- Maintained Django applications and fixed bugs
+- Created database migrations and optimized queries
+- Participated in code reviews and sprint planning
+- Technologies: Python, Django, MySQL
+
+EDUCATION
+Bachelor of Science in Software Engineering
+Tech University | 2014 - 2018
+
+CERTIFICATIONS
+- AWS Certified Developer Associate
+- Docker Certified Associate
+
+PROJECTS
+- API Gateway: Built scalable API gateway handling 10K req/sec
+- Data Pipeline: Real-time data processing using Python and Redis
+- Monitoring Dashboard: Django application for system monitoring

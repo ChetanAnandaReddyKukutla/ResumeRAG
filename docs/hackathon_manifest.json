@@ -1,0 +1,60 @@
+{
+  "name": "ResumeRAG",
+  "version": "1.0.0",
+  "description": "Resume RAG system with deterministic embeddings, job matching, idempotency, rate limiting, and PII redaction",
+  "api_root": "/api",
+  "endpoints": [
+    "/api/health",
+    "/api/_meta",
+    "/api/auth/register",
+    "/api/auth/login",
+    "/api/resumes",
+    "/api/resumes/{id}",
+    "/api/ask",
+    "/api/jobs",
+    "/api/jobs/{id}",
+    "/api/jobs/{id}/match"
+  ],
+  "features": {
+    "idempotency": true,
+    "rate_limiting": true,
+    "pagination": true,
+    "pii_redaction": true,
+    "deterministic_ranking": true,
+    "semantic_search": true,
+    "job_matching": true
+  },
+  "notes": "Idempotency-Key required for POST creates. Rate limit: 60 req/min/user. All endpoints under /api/*.",
+  "tech_stack": {
+    "backend": "FastAPI + PostgreSQL (pgvector) + Redis",
+    "frontend": "React + Vite + Tailwind CSS",
+    "embeddings": "Deterministic hash-based (SHA256)"
+  },
+  "setup": {
+    "docker": "docker-compose up --build",
+    "migrations": "alembic upgrade head",
+    "seed": "python scripts/seed_data.py"
+  },
+  "test_users": [
+    {
+      "email": "recruiter@example.com",
+      "password": "Recruiter@123",
+      "role": "recruiter"
+    },
+    {
+      "email": "alice@example.com",
+      "password": "Alice@123",
+      "role": "user"
+    },
+    {
+      "email": "bob@example.com",
+      "password": "Bob@123",
+      "role": "user"
+    }
+  ],
+  "sample_resumes": [
+    "alice_resume.txt - React, Node.js, Express, PostgreSQL",
+    "bob_resume.txt - Python, Django, REST, Redis",
+    "carol_resume.txt - React, TypeScript, GraphQL, Docker"
+  ]
+}

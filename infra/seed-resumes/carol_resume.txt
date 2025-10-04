@@ -1,0 +1,57 @@
+Carol Williams
+carol@example.com | (555) 345-6789
+
+PROFESSIONAL SUMMARY
+Frontend Developer with expertise in modern JavaScript frameworks and a passion
+for creating beautiful, performant user interfaces. 3+ years of experience with
+React, TypeScript, and GraphQL. Strong focus on user experience and accessibility.
+
+TECHNICAL SKILLS
+- Frontend: React, TypeScript, JavaScript, HTML5, CSS3, Sass
+- State Management: Redux, MobX, React Query
+- GraphQL: Apollo Client, GraphQL queries and mutations
+- Tools: Webpack, Vite, ESLint, Prettier
+- Testing: Jest, React Testing Library, Cypress
+- DevOps: Docker, CI/CD, GitHub Actions
+- Design: Figma, Adobe XD, Responsive Design
+
+EXPERIENCE
+
+Frontend Developer | UIDesign Co | 2022 - Present
+- Built modern web applications using React and TypeScript
+- Implemented GraphQL integration with Apollo Client
+- Created reusable component library with Storybook
+- Improved website performance achieving 95+ Lighthouse scores
+- Technologies: React, TypeScript, GraphQL, Apollo, Docker
+
+React Developer | WebApps Inc | 2020 - 2022
+- Developed single-page applications with React
+- Integrated RESTful APIs and managed state with Redux
+- Implemented responsive designs for mobile and desktop
+- Collaborated with designers using Figma
+- Technologies: React, JavaScript, Redux, REST APIs, CSS3
+
+Frontend Intern | DigitalAgency | 2019 - 2020
+- Created landing pages with HTML, CSS, and JavaScript
+- Learned React and contributed to small features
+- Participated in daily standups and sprint reviews
+- Technologies: HTML, CSS, JavaScript, React
+
+EDUCATION
+Bachelor of Arts in Web Design
+Design College | 2015 - 2019
+
+CERTIFICATIONS
+- React Developer Certification
+- GraphQL Fundamentals
+
+PROJECTS
+- E-commerce Frontend: React + TypeScript + GraphQL shopping site
+- Component Library: Published npm package with 50+ components
+- Portfolio Website: Built with React, TypeScript, and Docker
+- Open Source: Contributor to React-based UI libraries
+
+ADDITIONAL SKILLS
+- Accessibility: WCAG 2.1 AA compliance
+- Performance Optimization: Code splitting, lazy loading
+- Internationalization: Multi-language support with i18n

@@ -1,0 +1,48 @@
+John Doe
+Senior Software Engineer
+
+Email: john.doe@example.com
+Phone: (555) 123-4567
+Location: San Francisco, CA
+
+SUMMARY
+Experienced software engineer with 8+ years of expertise in full-stack development, specializing in Python, React, and cloud technologies. Strong background in building scalable microservices and leading development teams.
+
+TECHNICAL SKILLS
+- Languages: Python, JavaScript, TypeScript, SQL
+- Frameworks: FastAPI, Django, React, Node.js
+- Databases: PostgreSQL, MongoDB, Redis
+- Cloud: AWS (EC2, S3, Lambda), Docker, Kubernetes
+- Tools: Git, Jenkins, Terraform
+
+PROFESSIONAL EXPERIENCE
+
+Senior Software Engineer | TechCorp Inc. | 2020 - Present
+- Led development of microservices architecture serving 1M+ users
+- Built RESTful APIs with FastAPI achieving 99.9% uptime
+- Implemented CI/CD pipelines reducing deployment time by 60%
+- Mentored team of 5 junior developers
+- Technologies: Python, FastAPI, PostgreSQL, Docker, AWS
+
+Software Engineer | StartupXYZ | 2017 - 2020
+- Developed React-based dashboard for data visualization
+- Designed and implemented PostgreSQL database schema
+- Integrated third-party APIs for payment processing
+- Reduced page load time by 40% through optimization
+- Technologies: React, Node.js, MongoDB, Redis
+
+Junior Developer | DevShop | 2016 - 2017
+- Built web applications using Django framework
+- Wrote automated tests achieving 85% code coverage
+- Collaborated with designers on UI/UX improvements
+- Technologies: Python, Django, jQuery, MySQL
+
+EDUCATION
+
+B.S. Computer Science | University of California | 2016
+- GPA: 3.8/4.0
+- Relevant Coursework: Data Structures, Algorithms, Database Systems
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect
+- Certified Kubernetes Administrator (CKA)
