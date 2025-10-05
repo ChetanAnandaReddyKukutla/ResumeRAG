@@ -42,6 +42,7 @@ def build_database_url() -> str:
     encoded_pw = quote_plus(password)
     return f"postgresql+asyncpg://{user}:{encoded_pw}@{host}:{port}/{name}"
 
+# Use environment-derived DATABASE_URL (no hard-coded value)
 DATABASE_URL = build_database_url()
 
 def build_connect_args() -> dict:
