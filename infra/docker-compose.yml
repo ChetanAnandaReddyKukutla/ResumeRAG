@@ -13,8 +13,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-    networks:
-      - resumerag-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -26,8 +24,6 @@ services:
     container_name: resumerag_redis
     ports:
       - "6379:6379"
-    networks:
-      - resumerag-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -46,8 +42,6 @@ services:
     volumes:
       - minio_data:/data
     command: server /data --console-address ":9001"
-    networks:
-      - resumerag-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 10s
@@ -76,29 +70,6 @@ services:
     volumes:
       - ../api:/app
       - uploads:/app/uploads
-    networks:
-      - resumerag-network
-
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    container_name: resumerag_frontend
-    ports:
-      - "3000:80"
-    depends_on:
-      - api
-    networks:
-      - resumerag-network
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
-      interval: 30s
-      timeout: 3s
-      retries: 3
-
-networks:
-  resumerag-network:
-    driver: bridge
 
 volumes:
   postgres_data:
